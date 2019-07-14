@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  broker-local:
+    image: rabbitmq:3-management-alpine
+    environment:
+      RABBITMQ_DEFAULT_USER: "testes"
+      RABBITMQ_DEFAULT_PASS: "RabbitMQ2019!"
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - mensageria
+
+networks: 
+    mensageria:
+      driver: bridge
