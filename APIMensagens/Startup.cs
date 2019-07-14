@@ -36,7 +36,7 @@ namespace APIMensagens
             // Verificando a disponibilidade do broker de mensageria
             // através de Health Checks
             services.AddHealthChecks()
-                .AddRabbitMQ(Configuration.GetConnectionString("RabbitMQ"));
+                .AddRabbitMQ(Configuration.GetConnectionString("RabbitMQ"), name: "rabbitMQ");
             services.AddHealthChecksUI();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -50,7 +50,6 @@ namespace APIMensagens
             }
             else
             {
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
